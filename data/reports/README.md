@@ -1,35 +1,41 @@
 This folder contains weekly reports, metrics, and final documentation. 
-# Data Folder
 
 ## Purpose
 
-This folder contains all datasets used in the Fake News Detection project. The data is used for preprocessing, data cleaning, model training, and evaluation.
+This folder contains reports and documentation generated during the Fake News Detection project.
 
-## Files
+## Contents
 
-### True.csv
+### Data Cleaning Report
 
-Contains real news articles collected from reliable news sources. These records are labeled as Real News (Label = 1).
+Documents the preprocessing steps performed on the dataset, including:
 
-### Fake.csv
+* Checking for missing values
+* Removing duplicate records
+* Data validation
+* Creation of the cleaned dataset
 
-Contains fake news articles collected from various sources. These records are labeled as Fake News (Label = 0).
+### Model Performance Report
 
-### cleaned_dataset.csv
+Contains details about:
 
-This file is generated after data cleaning and preprocessing. Duplicate records are removed and the data is prepared for machine learning model training.
+* Machine learning algorithm used
+* Training and testing process
+* Accuracy achieved
+* Sample predictions
 
-## Usage
+## Summary
 
-1. True.csv and Fake.csv are loaded using Pandas.
-2. Both datasets are merged into a single dataset.
-3. Labels are assigned to identify real and fake news.
-4. Data cleaning is performed to remove inconsistencies and duplicate records.
-5. The cleaned dataset is used for training and testing the Fake News Detection model.
+Dataset Used:
 
-## Tools Used
+* True.csv
+* Fake.csv
 
-* Python
-* Pandas
-* NumPy
-* Jupyter Notebook
+Cleaning Performed:
+
+* Missing value inspection
+* Duplicate removal
+* Dataset validation
+
+Result:
+A Fake News Detection model was successfully trained and achieved approximately 98% accuracy on the test dataset.
