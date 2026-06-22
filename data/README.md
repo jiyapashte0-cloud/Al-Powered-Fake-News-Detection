@@ -1,5 +1,4 @@
 This folder contains raw and processed datasets.
-# Data Folder
 
 ## Purpose
 
