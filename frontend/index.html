@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TruthLens — AI Fake News Detector</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <div class="bg-grid"></div>
+
+  <header class="header">
+    <div class="logo">
+      <span class="logo-mark">⬡</span>
+      <span class="logo-text">TruthLens</span>
+    </div>
+    <div class="header-badge" id="statusBadge">
+      <span class="status-dot"></span>
+      <span class="status-label">Connecting…</span>
+    </div>
+  </header>
+
+  <main class="main">
+
+    <section class="hero">
+      <p class="eyebrow">AI-powered verification</p>
+      <h1 class="headline">
+        Is it real<br />or fabricated?
+      </h1>
+      <p class="subheadline">
+        Paste any news article below. Our model analyses language patterns to detect misinformation.
+      </p>
+    </section>
+
+    <section class="card analyzer-card">
+      <div class="card-label">ARTICLE INPUT</div>
+
+      <div class="textarea-wrap" id="textareaWrap">
+        <textarea
+          id="newsInput"
+          placeholder="Paste the full news article text here…"
+          spellcheck="false"
+          aria-label="News article text"
+        ></textarea>
+        <div class="scan-line" id="scanLine"></div>
+        <div class="char-count" id="charCount">0 characters</div>
+      </div>
+
+      <!-- [CHANGED] Word counter + live progress bar toward 30-word minimum -->
+      <div class="word-counter-row">
+        <span class="word-count-label">
+          <span id="wordCount">0</span> words
+          <span class="word-min-note" id="wordMinNote">— minimum 30 required</span>
+        </span>
+        <div class="word-progress-track" aria-hidden="true">
+          <div class="word-progress-fill" id="wordProgressFill"></div>
+        </div>
+      </div>
+
+      <!-- [CHANGED] Information box: guidance on input quality -->
+      <div class="info-box" role="note">
+        <span class="info-icon">ℹ</span>
+        <p>For best results, paste a complete news article or detailed news report. Short headlines or random sentences may not produce reliable predictions.</p>
+      </div>
+
+      <!-- [CHANGED] Inline validation message (empty / too short) -->
+      <div class="validation-msg hidden" id="validationMsg" role="alert">
+        <span class="val-icon">⚠</span>
+        <span id="validationText"></span>
+      </div>
+
+      <div class="actions">
+        <button class="btn-clear" id="clearBtn" aria-label="Clear text">Clear</button>
+        <button class="btn-predict" id="predictBtn" aria-label="Analyse article">
+          <span class="btn-text">Analyse Article</span>
+          <span class="btn-icon">→</span>
+        </button>
+      </div>
+    </section>
+
+    <div id="loadingState" class="loading-state hidden" aria-live="polite">
+      <div class="loader-ring"></div>
+      <div class="loader-text">
+        <span class="loader-title">Analysing…</span>
+        <span class="loader-sub" id="loaderSub">Vectorising text</span>
+      </div>
+    </div>
+
+    <section id="resultCard" class="card result-card hidden" aria-live="polite">
+      <div class="card-label">VERDICT</div>
+      <div class="result-icon" id="resultIcon"></div>
+      <div class="result-label" id="resultLabel"></div>
+      <div class="result-confidence" id="resultDesc"></div>
+      <button class="btn-again" id="tryAgainBtn">Analyse another article</button>
+    </section>
+
+    <div id="errorState" class="error-state hidden" role="alert">
+      <div class="error-icon">⚠</div>
+      <div class="error-content">
+        <strong>Backend unavailable</strong>
+        <p>Could not reach <code>http://127.0.0.1:5000</code>. Make sure the Flask server is running, then try again.</p>
+      </div>
+      <button class="btn-retry" id="retryBtn">Retry</button>
+    </div>
+
+  </main>
+
+  <footer class="footer">
+    <span>TruthLens © 2025</span>
+    <span class="footer-sep">·</span>
+    <span>Powered by your Flask ML model</span>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
