@@ -1,6 +1,6 @@
 /* ─── TruthLens — script.js ─────────────────────────────────── */
 
-const API_BASE = 'http://127.0.0.1:5000';
+const API_BASE = 'https://al-powered-fake-news-detection-2.onrender.com';
 
 /* ── Element refs ───────────────────────────────────────────── */
 const newsInput   = document.getElementById('newsInput');
