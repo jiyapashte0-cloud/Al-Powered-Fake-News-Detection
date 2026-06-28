@@ -41,7 +41,7 @@ Cleaning Performed:
 Result:
 A Fake News Detection model was successfully trained and achieved approximately 98% accuracy on the test dataset.
 
-  ##Reports Documentation
+## Reports Documentation
 
 AI Fake News Detection Project
 
